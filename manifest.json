@@ -1,0 +1,16 @@
+{
+	"name":"Pynance",
+	"short_name":"Pynance",
+	"theme_color": "#000000",
+	"background_color": "#000000",
+	"display": "standalone",
+	"scope": "/",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "icons/icon.png",
+			"sizes": "400x400",
+			"type": "image/png"
+		}
+	]
+}

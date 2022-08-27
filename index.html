@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="icons/icon.png">
+<link rel="apple-touch-icon" sizes="400x400" href="icons/icon.png">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="app.js" defer></script>
+<link rel="manifest" href="manifest.json">
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function(){
+	var el = document.getElementById('reload');
+	/*
+	var handle_touchstart = function(e){
+		console.log('touchstart');
+	};
+	*/
+	var handle_touchend = function(e){
+		console.log('touchend: reload');
+		el.innerText = 'reloading...';
+		location.reload();
+	};
+	//el.addEventListener('touchstart', handle_touchstart, false);
+	el.addEventListener('touchend', handle_touchend, false);
+});
+</script>
+</head>
+<body>
+<div class="css-1">
+<div class="css-1-all">Overview4</div>
+<div class="css-1-all">Spot</div>
+<div class="css-1-all">Funding</div>
+<div class="css-1-all">Margin</div>
+<div class="css-1-all">Future</div>
+</div>
+<div style="height:200px; display:block;"></div>
+<div id="reload">reload</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+html {
+	overflow: hidden;
+	height: 100%;
+	background-color: rgb(20,21,26);
+	font-family: BinancePlex,Arial,sans-serif !important;
+	font-size: 40px;
+	color: rgb(234, 236, 239);
+}
+.css-1 {
+	display: flex;
+	margin: 0px 20px;
+}
+.css-1-all {
+	display: inline-flex;
+	margin: 0px 20px;
+}
