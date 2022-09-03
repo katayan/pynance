@@ -1,16 +1,121 @@
 html {
+}
+body {
 	overflow: hidden;
 	height: 100%;
-	background-color: rgb(20,21,26);
+	background-color: rgb(31,38,48);
 	font-family: BinancePlex,Arial,sans-serif !important;
-	font-size: 40px;
+	font-size: 20px;
 	color: rgb(234, 236, 239);
 }
+.Content {
+	z-index: 0;
+	background-color: rgb(23,30,38);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	/*height: 100%;*/
+	overflow-x: hidden;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+.Content-scrolling {
+	/*height: 100%;*/
+	overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
+}
+.Content::-webkit-scrollbar {
+	display: none;
+	height: 0px !important;
+}
+.content-head-space {
+	height:28px;
+}
+.content-foot-space {
+	height:66px;
+	background-color: rgb(31,38,48);
+}
+.Content-field {
+	float: top;
+}
+.content-hidden {
+	display: none;
+}
+.content-visible {
+	display: block;
+}
+.content-overview {
+}
+.content-top {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	background-color: rgb(31,38,48);
+}
+.content-overview-1 {
+	/*height: 200px;*/
+	width: 100%;
+}
+.content-markets {
+	background-color: red;
+}
+.Header {
+	z-index: 1;
+	background-color: rgb(23,30,38);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 28px;
+	font-size: 20px;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+.Header::-webkit-scrollbar {
+	display: none;
+	height: 0px !important;
+}
 .css-1 {
-	display: flex;
-	margin: 0px 20px;
+	width: 420px;
+	overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 }
 .css-1-all {
-	display: inline-flex;
-	margin: 0px 20px;
+	/*display: inline-flex;*/
+	margin: 0px 10px;
+	float: left;
+}
+.css-high-light {
+	color: rgb(234, 236, 239);
+	box-sizing: border-box;
+	border-bottom: 2px solid rgb(240, 185, 11);
+}
+.css-low-light {
+	color: rgb(132, 142, 156);
+}
+.Footer {
+	z-index: 1;
+	background-color: rgb(31,38,48);
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 66px;
+	font-size: 13px;
+	/*background-color: red;*/
+}
+.css-3 {
+	width:100%;
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+}
+.css-3-icon {
+	margin: 4px;
+}
+.css-3-title {
+	color: rgb(234, 236, 239);
+}
+.css-3-title-selected {
+	color: rgb(240, 185, 11);
 }
