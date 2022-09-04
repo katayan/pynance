@@ -1,8 +1,10 @@
 const staticAssets = [
+	/*
 	"index.html",
 	"style.css",
 	"app.js",
 	"serviceWorker.js",
+	*/
 ];
 
 self.addEventListener('install', async e => {
