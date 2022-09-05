@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var handle_touchend = function(e){
 		console.log('touchend: reload');
 		el.innerText = 'reloading...';
-		var url_str = (location.protocol
-			+ location.hostname
+		var url_str = (
 			+ location.pathname
 			+ "?d="
 			+ dtf);
