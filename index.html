@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded',function(){
 		console.log('touchend: reload');
 		el.innerText = 'reloading...';
 		var url_str = (
-			+ location.pathname
+			location.pathname
 			+ "?d="
 			+ dtf);
 		console.log(url_str);
