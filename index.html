@@ -27,11 +27,13 @@ document.addEventListener('DOMContentLoaded',function(){
 	var handle_touchend = function(e){
 		console.log('touchend: reload');
 		el.innerText = 'reloading...';
-		location.href = (location.protocol
+		var url_str = (location.protocol
 			+ location.hostname
 			+ location.pathname
 			+ "?d="
 			+ dtf);
+		console.log(url_str);
+		//location.href = url_str;
 	};
 	el.addEventListener('touchend', handle_touchend, false);
 });
