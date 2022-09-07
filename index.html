@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded',function(){
 		var dollar_per_btc = get_dollar_per_btc();
 		var target_dollar = target_yen / yen_per_dollar;
 		var target_btc = target_dollar / dollar_per_btc;
-		var disp_yen = target_yen.toFixed(2);
-		var disp_dollar = target_dollar.toFixed(2);
+		var disp_yen = Number(target_yen.toFixed(2)).toLocaleString();
+		var disp_dollar = Number(target_dollar.toFixed(2)).toLocaleString();
 		var disp_btc = target_btc.toFixed(8);
 		console.log('target_yen: '+target_yen);
 		console.log('yen_per_dollar: '+yen_per_dollar);
