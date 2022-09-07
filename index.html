@@ -37,18 +37,69 @@ document.addEventListener('DOMContentLoaded',function(){
 		location.href = url_str;
 	};
 	el.addEventListener('touchend', handle_touchend, false);
+
+	var get_yen_per_dollar = function(){
+		return 143.275;
+	};
+	var get_dollar_per_btc = function(){
+		return 18857.89;
+	};
+	var get_target_yen = function(){
+		var base_yen = 2572130.12;
+		var variable = 0.1;
+		var target_yen = base_yen + variable*base_yen*get_range();
+		return target_yen;
+	};
+	var set_values = function(){
+		var target_yen = get_target_yen();
+		var yen_per_dollar = get_yen_per_dollar();
+		var dollar_per_btc = get_dollar_per_btc();
+		var target_dollar = (target_yen / yen_per_dollar).toFixed(2);
+		var target_btc = (target_dollar / dollar_per_btc).toFixed(8);
+		console.log('target_yen: '+target_yen);
+		console.log('yen_per_dollar: '+yen_per_dollar);
+		console.log('dollar_per_btc: '+dollar_per_btc);
+		console.log('target_dollar: '+target_dollar);
+		console.log('target_btc: '+target_btc);
+		var el_tv = document.getElementById('total_value');
+		var el_tv_fiat = document.getElementById('total_value_fiat');
+		var el_sv = document.getElementById('spot_value');
+		var el_sv_fiat = document.getElementById('spot_value_fiat');
+		el_tv.innerText = target_btc;
+		el_sv.innerText = target_btc;
+		el_tv_fiat.innerText = '≈ $'+target_dollar;
+		el_sv_fiat.innerText = '≈ $'+target_dollar;
+	};
+	var get_range = function(){
+		var t_unit = 60*1000; /* millisecond timestamp to minute */
+		var cycle = 7*24*60; /* weekly cycle in t_unit: 10080 */
+		var ts = Date.now();
+		var t = parseInt(ts/t_unit);
+		var m = t%cycle
+		var mf = 2*(m/cycle-0.5); /* To range -1 to 1 */
+		var rad = mf*Math.PI; /* To radian range -pi to pi */
+		var cos_ratio = Math.cos(rad);
+		console.log('ts: '+ts);
+		console.log('t: '+t);
+		console.log('m: '+m);
+		console.log('mf: '+mf);
+		console.log('rad: '+rad);
+		console.log('cos_ratio: '+cos_ratio);
+		return cos_ratio;
+	};
+	set_values();
 });
 </script>
 </head>
 <body>
 
 <div class="Header">
-	<div class="css-1">
-		<div class="css-1-all css-high-light">Overview</div>
-		<div class="css-1-all css-low-light">Spot</div>
-		<div class="css-1-all css-low-light">Funding</div>
-		<div class="css-1-all css-low-light">Margin</div>
-		<div class="css-1-all css-low-light">Future</div>
+	<div class="Header-wallet">
+		<div class="Header-wallet-items text-high-light Header-wallet-selected">Overview</div>
+		<div class="Header-wallet-items text-low-light Header-wallet-noselected">Spot</div>
+		<div class="Header-wallet-items text-low-light Header-wallet-noselected">Funding</div>
+		<div class="Header-wallet-items text-low-light Header-wallet-noselected">Margin</div>
+		<div class="Header-wallet-items text-low-light Header-wallet-noselected">Future</div>
 	</div>
 </div>
 <div class="Content">
@@ -56,31 +107,57 @@ document.addEventListener('DOMContentLoaded',function(){
 		<div class="Content-field">
 			<div class="content-head-space">
 			</div>
-			<div class="content-overview content-visible">
-				<div class="content-overview-1 content-top">
-					<div>overview4</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview</div>
-					<div>overview1</div>
-					<div>overview2</div>
-					<div>overview3</div>
+			<div class="c-o content-visible">
+				<div class="c-o-top">
+					<div class="c-o-tv-area">
+						<div class="c-o-tv-label text-low-light">Total Value(BTC)</div>
+						<div class="c-o-tv text-high-light" id="total_value">0.01471890</div>
+						<div class="c-o-tv-fiat text-low-light" id="total_value_fiat">≈ $291.07</div>
+					</div>
+					<div class="c-o-buy-deposit-area">
+						<div class="c-o-buy-button">Buy</div>
+						<div class="c-o-deposit-button">Deposit</div>
+					</div>
+				</div>
+				<div class="c-o-space">
+				</div>
+				<div class="c-o-bottom">
+					<div class="c-o-pf-area">
+						<div class="c-o-pf-title-area">
+							<div class="c-o-pf-title-label text-high-light">Portfolio</div>
+							<div class="c-o-pf-title-space"></div>
+							<div class="c-o-pf-title-graph"></div>
+						</div>
+						<div class="c-o-pf-show-hide-area">
+							<div class="c-o-pf-show-hide-button">
+								<img src="icons/icon_pf_hide_to_view_0balance_button.jpg" width="20" height="20"/>
+							</div>
+							<div class="c-o-pf-show-hide-label text-low-light">Hide 0 balance wallet</div>
+						</div>
+						<div class="c-o-pf-spot-area">
+							<div class="c-o-pf-spot-label-area">
+								<div class="c-o-pf-spot-icon">
+									<img src="icons/icon_pf_goto_spot_button.jpg" width="20" height="20"/>
+								</div>
+								<div class="c-o-pf-spot-label text-low-light">Spot</div>
+							</div>
+							<div class="c-o-pf-spot-value-area">
+								<div class="c-o-pf-spot-value text-high-light" id="spot_value">0.01530885 BTC</div>
+								<div class="c-o-pf-spot-value-fiat text-low-light" id="spot_value_fiat">≈ $291.07</div>
+							</div>
+						</div>
+						<div class="c-o-pf-tpa-area">
+							<div class="c-o-pf-tpa-label-area">
+								<div class="c-o-pf-tpa-icon">
+									<img src="icons/icon_tpa_button.jpg" width="20" height="20"/>
+								</div>
+								<div class="c-o-pf-tpa-label text-low-light">Third-party Account</div>
+							</div>
+							<div class="c-o-pf-tpa-next-area">
+								<div class="c-o-pf-tpa-next-button"></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="content-markets content-hidden">

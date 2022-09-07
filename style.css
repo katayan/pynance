@@ -1,5 +1,12 @@
 html {
 }
+/*  colors
+	gray-background: rgb(31,38,48);
+	dark-background: rgb(23,30,38);
+	high-light: rgb(234, 236, 239);
+	low-light: rgb(132, 142, 156);
+	yellow: rgb(240, 185, 11);
+*/
 body {
 	overflow: hidden;
 	height: 100%;
@@ -15,13 +22,13 @@ body {
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	/*height: 100%;*/
+	height: 100%; /* MUST */
 	overflow-x: hidden;
 	overflow-y: scroll;
 	scrollbar-width: none;
 }
 .Content-scrolling {
-	/*height: 100%;*/
+	height: 100%; /* MUST */
 	overflow-scrolling: touch;
 	-webkit-overflow-scrolling: touch;
 }
@@ -30,7 +37,7 @@ body {
 	height: 0px !important;
 }
 .content-head-space {
-	height:28px;
+	height:48px;
 }
 .content-foot-space {
 	height:66px;
@@ -45,16 +52,12 @@ body {
 .content-visible {
 	display: block;
 }
-.content-overview {
-}
-.content-top {
+.c-o-top {
+	/*height: 200px;*/
+	width: 100%;
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 	background-color: rgb(31,38,48);
-}
-.content-overview-1 {
-	/*height: 200px;*/
-	width: 100%;
 }
 .content-markets {
 	background-color: red;
@@ -66,7 +69,7 @@ body {
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	height: 28px;
+	height: 48px;
 	font-size: 20px;
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -75,23 +78,23 @@ body {
 	display: none;
 	height: 0px !important;
 }
-.css-1 {
+.Header-wallet {
 	width: 420px;
 	overflow-scrolling: touch;
 	-webkit-overflow-scrolling: touch;
 }
-.css-1-all {
+.Header-wallet-items {
 	/*display: inline-flex;*/
+	/*margin: 10px 10px;*/
 	margin: 0px 10px;
+	padding: 10px 0px;
 	float: left;
 }
-.css-high-light {
-	color: rgb(234, 236, 239);
+.Header-wallet-selected {
 	box-sizing: border-box;
 	border-bottom: 2px solid rgb(240, 185, 11);
 }
-.css-low-light {
-	color: rgb(132, 142, 156);
+.Header-wallet-noselected {
 }
 .Footer {
 	z-index: 1;
@@ -114,8 +117,118 @@ body {
 	margin: 4px;
 }
 .css-3-title {
-	color: rgb(234, 236, 239);
+	color: rgb(132, 142, 156);
 }
 .css-3-title-selected {
 	color: rgb(240, 185, 11);
+}
+
+.c-o-pf-tpa-label-area {
+	display: flex;
+	justify-content: left;
+}
+.c-o-pf-tpa-label {
+	font-size: 18px;
+}
+.c-o-pf-tpa-area {
+	padding: 0px 10px 10px 10px;
+}
+.c-o-pf-spot-icon {
+}
+.c-o-pf-spot-value {
+	font-size: 18px;
+	text-align: right;
+}
+.c-o-pf-spot-value-fiat {
+	font-size: 13px;
+	text-align: right;
+}
+.c-o-pf-spot-label-area {
+	display: flex;
+	justify-content: left;
+}
+.c-o-pf-spot-label {
+	font-size: 18px;
+}
+.c-o-pf-spot-area {
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 10px 10px 10px;
+}
+.c-o-pf-show-hide-area {
+	display: flex;
+	justify-content: left;
+	padding: 0px 10px 10px 10px;
+}
+.c-o-pf-show-hide-button {
+	align-items: center;
+}
+.c-o-pf-show-hide-label {
+	font-size: 14px;
+}
+.c-o-pf-title-label {
+	font-size: 20px;
+}
+.c-o-pf-title-area {
+	padding: 20px 10px 10px 10px;
+}
+.c-o-pf-area {
+}
+.c-o {
+}
+.c-o-bottom {
+	background-color: rgb(31,38,48);
+}
+.c-o-space {
+	width: 100%;
+	height: 10px;
+}
+.c-o-tv-area {
+	padding: 20px 10px 0px 10px;
+}
+.c-o-tv-label {
+	font-size: 13px;
+}
+
+.c-o-tv {
+	font-size: 22px;
+	margin: 7px 6px 0px 0px;
+}
+
+.c-o-tv-fiat {
+	font-size: 13px;
+}
+
+.c-o-buy-deposit-area {
+	width:100%;
+	display: flex;
+	font-size: 18px;
+	justify-content: space-around;
+	text-align: center;
+	padding: 5px 0px;
+}
+
+.c-o-buy-button {
+	width: 100%;
+	border-radius: 10px;
+	background-color: rgb(132, 142, 156);
+	color: rgb(234, 236, 239);
+	padding: 9px;
+	margin: 10px;
+}
+
+.c-o-deposit-button {
+	width: 100%;
+	border-radius: 10px;
+	background-color: rgb(240, 185, 11);
+	color: rgb(23,30,38);
+	padding: 9px;
+	margin: 10px;
+}
+
+.text-high-light {
+	color: rgb(234, 236, 239);
+}
+.text-low-light {
+	color: rgb(132, 142, 156);
 }
