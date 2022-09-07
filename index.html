@@ -51,11 +51,15 @@ document.addEventListener('DOMContentLoaded',function(){
 		return target_yen;
 	};
 	var set_values = function(){
+		var target = 'yen';
 		var target_yen = get_target_yen();
 		var yen_per_dollar = get_yen_per_dollar();
 		var dollar_per_btc = get_dollar_per_btc();
-		var target_dollar = (target_yen / yen_per_dollar).toFixed(2);
-		var target_btc = (target_dollar / dollar_per_btc).toFixed(8);
+		var target_dollar = target_yen / yen_per_dollar;
+		var target_btc = target_dollar / dollar_per_btc;
+		var disp_yen = target_yen.toFixed(2);
+		var disp_dollar = target_dollar.toFixed(2);
+		var disp_btc = target_btc.toFixed(8);
 		console.log('target_yen: '+target_yen);
 		console.log('yen_per_dollar: '+yen_per_dollar);
 		console.log('dollar_per_btc: '+dollar_per_btc);
@@ -65,10 +69,15 @@ document.addEventListener('DOMContentLoaded',function(){
 		var el_tv_fiat = document.getElementById('total_value_fiat');
 		var el_sv = document.getElementById('spot_value');
 		var el_sv_fiat = document.getElementById('spot_value_fiat');
-		el_tv.innerText = target_btc;
-		el_sv.innerText = target_btc;
-		el_tv_fiat.innerText = '≈ $'+target_dollar;
-		el_sv_fiat.innerText = '≈ $'+target_dollar;
+		el_tv.innerText = disp_btc;
+		el_sv.innerText = disp_btc;
+		if (target == 'yen') {
+			el_tv_fiat.innerHTML = '≈ &yen;'+disp_yen;
+			el_sv_fiat.innerHTML = '≈ &yen;'+disp_yen;
+		} else {
+			el_tv_fiat.innerText = '≈ $'+disp_dollar;
+			el_sv_fiat.innerText = '≈ $'+disp_dollar;
+		}
 	};
 	var get_range = function(){
 		var t_unit = 60*1000; /* millisecond timestamp to minute */
